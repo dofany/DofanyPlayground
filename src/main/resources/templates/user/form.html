@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>회원가입</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<link href="../css/styles.css" rel="stylesheet">
+<style>
+#logo {
+	text-align: center;
+	background-color: pink;
+}
+
+.down_menu {
+	background-color: pink;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.down_menu li {
+	display: inline-block;
+	text-align: center;
+	font-size: 18px;
+	padding: 40px;
+}
+
+.menu {
+	padding: 20px;
+	cursor: pointer;
+}
+
+.menu a {
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-weight: bolder;
+	font-family: sans-serif;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+li a:hover {
+	background-color: hotpink;
+}
+
+.up_menu {
+	list-style-type: none;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+.up_menu li {
+	display: inline-block;
+	text-align: right;
+	font-size: 12px;
+	padding: 12px;
+}
+
+h2 {
+	text-align: center;
+	font-family: sans-serif;
+	text-decoration: none;
+	font-weight: bolder;
+	font-family: sans-serif;
+	font-size: 30px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	height: 150%;
+	background: white;
+	font-family: sans-serif;
+}
+
+#header {
+	padding-top: 62px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#wrapper {
+	position: relative;
+	height: 100%;
+}
+
+#content {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	width: 460px;
+}
+
+h3 {
+	margin: 19px 0 8px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.box {
+	display: block;
+	width: 100%;
+	height: 51px;
+	border: solid 1px black;
+	padding: 10px 14px 10px 14px;
+	box-sizing: border-box;
+	background: white;
+	position: relative;
+}
+
+.int {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 29px;
+	border: none;
+	background: white;
+	font-size: 15px;
+}
+
+input {
+	font-family: sans-serif;
+}
+
+.box.int_id {
+	padding-right: 110px;
+}
+
+.box.int_pass {
+	padding-right: 40px;
+}
+
+.box.int_pass_check {
+	padding-right: 40px;
+}
+
+#bir_wrap {
+	display: table;
+	width: 100%;
+}
+
+#bir_yy {
+	display: table-cell;
+	width: 147px;
+}
+
+#bir_mm {
+	display: table-cell;
+	width: 147px;
+	vertical-align: middle;
+}
+
+#bir_dd {
+	display: table-cell;
+	width: 147px;
+}
+
+#bir_mm, #bir_dd {
+	padding-left: 10px;
+}
+
+#e-mail_wrap {
+	display: table;
+	width: 100%;
+}
+
+#e-mail_adress {
+	display: table-cell;
+	width: 150px;
+	padding-left: 10px;
+}
+
+select {
+	width: 100%;
+	height: 29px;
+	font-size: 15px;
+	background: white 100% 50% no-repeat;
+	background-size: 20px 8px;
+	-webkit-appearance: none;
+	display: inline-block;
+	text-align: start;
+	border: none;
+	cursor: default;
+	font-family: sans-serif;
+}
+
+.btn_area {
+	margin: 30px 0 91px;
+	border: white;
+}
+
+#btnJoin {
+	width: 100%;
+	padding: 21px 0 17px;
+	border: 0;
+	cursor: pointer;
+	color: white;
+	background-color: pink;
+	font-size: 20px;
+	font-weight: 400;
+	font-family: sans-serif;
+}
+
+.error_next_box {
+	margin-top: 9px;
+	font-size: 12px;
+	color: red;
+	display: none;
+}
+
+#alertTxt {
+	position: absolute;
+	top: 19px;
+	right: 38px;
+	font-size: 12px;
+	color: red;
+	display: none;
+}
+</style>
+</head>
+<body>
+	{{>/include/navigation}}
+	<div class="container" id="main">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default content-main">
+				<h2>회원가입</h2>
+
+				<div id="wrapper">
+					<div id="content">
+						<form name="question" method="post" action="/users">
+							<div>
+								<h3 class="join_title">
+									<label for="id">아이디</label>
+								</h3>
+								<span class="box int_id"> <input type="text" name="id"
+									class="int" maxlength="20" placeholder="아이디 입력">
+								</span> <span class="error_next_box"></span>
+							</div>
+
+							<div>
+								<h3 class="join_title">
+									<label for="pswd1">비밀번호</label>
+								</h3>
+								<span class="box int_pass"> <input type="password"
+									name="pswd1" class="int" placeholder="비밀번호 입력" maxlength="20">
+									<span id="alertTxt">사용불가</span>
+								</span> <span class="error_next_box"></span>
+							</div>
+
+							<div>
+								<h3 class="join_title">
+									<label for="pswd2">비밀번호 재확인</label>
+								</h3>
+								<span class="box int_pass_check"> <input type="password"
+									name="pswd2" class="int" maxlength="20" placeholder="비밀번호 재입력">
+								</span> <span class="error_next_box"></span>
+							</div>
+
+							<div>
+								<h3 class="join_title">
+									<label for="name">이름</label>
+								</h3>
+								<span class="box int_name"> <input type="text"
+									name="name" class="int" maxlength="20" placeholder="이름 입력">
+								</span>
+							</div>
+
+							<div>
+								<h3 class="join_title">
+									<label for="yy">생년월일</label>
+								</h3>
+
+								<div id="bir_wrap">
+									<div id="bir_yy">
+										<span class="box"> <input type="text" name="yy"
+											class="int" maxlength="4" placeholder="년(4자)">
+										</span>
+									</div>
+									<div id="bir_mm">
+										<span class="box"> <select name="mm" class="sel">
+												<option>월</option>
+												<option value="01">1</option>
+												<option value="02">2</option>
+												<option value="03">3</option>
+												<option value="04">4</option>
+												<option value="05">5</option>
+												<option value="06">6</option>
+												<option value="07">7</option>
+												<option value="08">8</option>
+												<option value="09">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+										</select>
+										</span>
+									</div>
+
+									<div id="bir_dd">
+										<span class="box"> <input type="text" name="dd"
+											class="int" maxlength="2" placeholder="일">
+										</span>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div>
+								<h3 class="join_title">
+									<label for="gender">성별</label>
+								</h3>
+								<span class="box gender_code"> <select name="gender"
+									class="sel">
+										<option>성별</option>
+										<option value="남자">남자</option>
+										<option value="여자">여자</option>
+								</select>
+								</span> <span class="error_next_box">필수 정보입니다.</span>
+							</div>
+
+							<div id="email">
+
+								<h3 class="join_title">
+									<label for="email">본인확인 e-mail<span class="optional"></span></label>
+								</h3>
+								<div id="e-mail_wrap">
+									<span class="box int_email"> <input type="text"
+										name="email" class="int" maxlength="15" placeholder="e-mail">
+									</span>
+
+									<div id="e-mail_adress">
+										<span class="box"> <select name="adress" class="sel">
+												<option>직접입력</option>
+												<option value="@dofany.com">@dofany.com</option>
+												<option value="@daum.net">@daum.net</option>
+												<option value="@gmail.com">@gmail.com</option>
+												<option value="@nate.com">@nate.com</option>
+												<option value="@naver.com">@naver.com</option>
+												<option value="@hotmail.com">@hotmail.com</option>
+												<option value="@korea.com">@korea.com</option>
+												<option value="@hanmir.net">@hanmir.net</option>
+										</select>
+										</span>
+
+									</div>
+								</div>
+								<span class="error_next_box">이메일 주소를 다시 확인해주세요.</span>
+							</div>
+
+
+							<div>
+								<h3 class="join_title">
+									<label for="phoneNo">휴대전화</label>
+								</h3>
+								<span class="box int_mobile"> <input type="tel"
+									name="mobile" class="int" maxlength="16" placeholder="mobile">
+								</span> <span class="error_next_box"></span>
+							</div>
+
+							<div class="btn_area">
+								<button type="submit" id="btnJoin">
+									<span>가입하기</span>
+								</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+	{{>/include/footer}}
+</body>
+</html>
